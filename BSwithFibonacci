@@ -1,0 +1,27 @@
+package com.trinadh.nextLevelPrep;
+
+public class BinarySearchFibo {
+    public static void main(String[] args) {
+        int arr[] = {1,2,3,4,5,6,7,8,9,10};
+        int target = 7;
+        int ans = -1;
+        if(target < arr.length) {
+             ans = binarySearchFibo(arr, target, 0, arr.length - 1);
+        }else{
+             ans = -1;
+        }
+        System.out.println(ans);
+
+    }
+    static int binarySearchFibo(int[] arr, int target,int start,int end){
+        int mid = start + (end - start)/2;
+        if(target < arr[mid]){
+            end = mid-1;
+            return binarySearchFibo(arr,target,start,end);
+        }else if(target > arr[mid]){
+            start = mid + 1;
+           return binarySearchFibo(arr,target,start,end);
+        }
+            return mid;
+    }
+}
